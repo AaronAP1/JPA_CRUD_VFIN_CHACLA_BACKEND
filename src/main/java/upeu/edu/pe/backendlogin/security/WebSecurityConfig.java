@@ -41,15 +41,85 @@ public class WebSecurityConfig {
 				.csrf().disable()
 				.authorizeRequests()
 				// API PUBLICAS
-				.antMatchers(HttpMethod.POST, "/api/usuario/create-usuario").permitAll()
+				
+				// Control
+				
+				// DOCUMENTO
+				.antMatchers(HttpMethod.GET, "/api/documento/listarDocs").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/documento/crear-documento").permitAll()
+				.antMatchers(HttpMethod.PUT, "/api/documento/actualizar-documento/**").permitAll()
+				.antMatchers(HttpMethod.DELETE, "/api/documento/borrar-documento/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/documento/listar-id/**").permitAll()
+	
+				// EMPLEADO
+				.antMatchers(HttpMethod.GET, "/api/empleado/listartodo").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/empleado/crear-empleado").permitAll()
+				.antMatchers(HttpMethod.PUT, "/api/empleado/actualizar-empleado/**").permitAll()
+				.antMatchers(HttpMethod.DELETE, "/api/empleado/borrar-empleado/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/empleado/listar-id/**").permitAll()
+	
+				// JUNTA DIRECTIVA
+				.antMatchers(HttpMethod.GET, "/api/JuntaDirectiva/listartodo").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/JuntaDirectiva/crear-jd").permitAll()
+				.antMatchers(HttpMethod.PUT, "/api/JuntaDirectiva/actualizar-jd/**").permitAll()
+				.antMatchers(HttpMethod.DELETE, "/api/JuntaDirectiva/borrar-jd/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/JuntaDirectiva/listar-jd/**").permitAll()
+				// ORGANIZACION
 				.antMatchers(HttpMethod.GET, "/api/organizacion/listar").permitAll()
 				.antMatchers(HttpMethod.POST, "/api/organizacion/crear-organizacion").permitAll()
 				.antMatchers(HttpMethod.PUT, "/api/organizacion/actualizar-organizacion/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/organizacion/listar-organizacion/**").permitAll()
+				// PARAMETRO
+				.antMatchers(HttpMethod.GET, "/api/parametro/listartodo").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/parametro/crear-parametro").permitAll()
+				.antMatchers(HttpMethod.PUT, "/api/parametro/actualizar-parametro/**").permitAll()
+				.antMatchers(HttpMethod.DELETE, "/api/parametro/borrar-parametro/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/parametro/listar-para/**").permitAll()
+
+				// PERSONA
+				.antMatchers(HttpMethod.GET, "/api/persona/listartodo").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/persona/crear-persona").permitAll()
+				.antMatchers(HttpMethod.PUT, "/api/persona/actualizar-persona/**").permitAll()
+				.antMatchers(HttpMethod.DELETE, "/api/persona/borrar-persona/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/persona/listar-persona/**").permitAll()
+
+				// PRIVILEGIO
+				.antMatchers(HttpMethod.GET, "/api/privilegio/listartodo").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/privilegio/crear-privilegio").permitAll()
+				.antMatchers(HttpMethod.PUT, "/api/privilegio/actualizar-privilegio/**").permitAll()
+				.antMatchers(HttpMethod.DELETE, "/api/privilegio/borrar-privilegio/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/privilegio/listar-privi/**").permitAll()
+
+				// REQUISITO
+				.antMatchers(HttpMethod.GET, "/api/requisito/listartodo").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/requisito/crear-requisito").permitAll()
+				.antMatchers(HttpMethod.PUT, "/api/requisito/actualizar-requisito/**").permitAll()
+				.antMatchers(HttpMethod.DELETE, "/api/requisito/borrar-requisito/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/requisito/listar-requi/**").permitAll()
+
+				// ROL
+				.antMatchers(HttpMethod.GET, "/api/rol/listartodo").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/rol/crear-rol").permitAll()
+				.antMatchers(HttpMethod.PUT, "/api/rol/actualizar-rol/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/rol/listar-rol/**").permitAll()
+
+				// SOLICITUD
+				.antMatchers(HttpMethod.GET, "/api/solicitud/listartodo").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/solicitud/crear-solicitud").permitAll()
+				.antMatchers(HttpMethod.PUT, "/api/solicitud/actualizar-solicitud/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/solicitud/listar-solicitud/**").permitAll()
+
+				// SOLIORGANIZACION
+				.antMatchers(HttpMethod.GET, "/api/soliorg/listartodo").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/soliorg/crear-soliorg").permitAll()
+				.antMatchers(HttpMethod.PUT, "/api/soliorg/actualizar-soliorg/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/soliorg/listar-soliorg/**").permitAll()
+	
+				
+				.antMatchers(HttpMethod.POST, "/api/usuario/create-usuario").permitAll()
+				
 				// API PRIVADAS
 //				.antMatchers(HttpMethod.GET, "/api/categoria/get-all").access("hasAuthority('ADMIN_ROLE') or hasAuthority('USER_ROLE') ")
-				.antMatchers(HttpMethod.GET, "/api/organizacion/listar-todo").hasAuthority("ADMIN")
-				.antMatchers(HttpMethod.POST, "/api/organizacion/crear-organizacion").hasAuthority("ADMIN")
-				.antMatchers(HttpMethod.PUT, "/api/organizacion/actualizar-organizacion/**").hasAuthority("ADMIN")
 				.antMatchers(HttpMethod.GET, "/api/categoria/get-all").hasAuthority("ADMIN")
 				.antMatchers(HttpMethod.POST, "/api/categoria/create-categoria").hasAuthority("ADMIN")
 				.antMatchers(HttpMethod.PUT, "/api/categoria/update-categoria/**").hasAuthority("ADMIN")

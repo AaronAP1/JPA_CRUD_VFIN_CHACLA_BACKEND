@@ -40,7 +40,7 @@ public class SolicitudController {
 		return solicitudService.createSolicitud(solicitud);
 	}
 	
-	@PutMapping("/update-categoria/{id_categoria}")
+	@PutMapping("/update-solicitud/{id_solicitud}")
 	public Solicitud update(@PathVariable int id_solicitud, @RequestBody Solicitud solicitud){
 		return solicitudService.updateSolicitud(id_solicitud, solicitud);
 	}

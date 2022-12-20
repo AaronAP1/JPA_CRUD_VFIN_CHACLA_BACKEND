@@ -20,7 +20,7 @@ import upeu.edu.pe.backendlogin.service.SoliOrganizacionService;
 
 
 @RestController
-@RequestMapping("/api/categoria")
+@RequestMapping("/api/soliorg")
 @CrossOrigin({"*"})
 public class SoliOrganizacionController {
 	
